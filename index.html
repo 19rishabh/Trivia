@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>
+                    In the Mahabharata, which side represents righteousness (dharma)?
+                 </h3>
+                 <button class ="C"> The Pandavas</button>
+                 <button class ="W">The Kauravas </button>
+                 <button class ="W">Neither</button>
+                 <div id="solution"></div>
+
+                 <h3>
+                    Who is the wife of Lord Shiva?
+                 </h3>
+                 <button class ="W"> Goddess Saraswati</button>
+                 <button class ="W">Goddess Lakshmi </button>
+                 <button class ="C">Goddess Parvati</button>
+                 <div id="solution"></div>
+
+                 <h3>
+                    Who is the supreme deity in Hinduism?
+                 </h3>
+                 <button class ="W"> Lord Vishnu</button>
+                 <button class ="W">Lord Shiva </button>
+                 <button class ="C">Lord Brahma</button>
+                 <div id="solution"></div>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>
+                    Who wrote Ramayana?
+                 </h3>
+                 <input type="text" placeholder="Answer" id="answer1">
+                 <button id="submit1">Submit</button>
+                 <div id="result1"></div>
+
+                 <h3>
+                    Who is the God of fire in Hindu mythology?
+                 </h3>
+                 <input type="text" placeholder="Answer" id="answer2">
+                 <button id="submit2">Submit</button>
+                 <div id="result2"></div>
+
+                 <h3>
+                    What is the abode of Lord Shiva?
+                 </h3>
+                 <input type="text" placeholder="Answer" id="answer3">
+                 <button id="submit3">Submit</button>
+                 <div id="result3"></div>
+
+
+            </div>
+        </div>
+        <script>
+            //Use document.querySelectorAll to query for multiple HTML elements that match a query. The function returns an array of all matching elements.
+            // write ids like xyz-abc-lmn
+            // .length function
+
+
+            document.addEventListener('DOMContentLoaded', function()
+            {
+                let correct = document.querySelectorAll(".C");
+                for(let i = 0; i< correct.length; i++)
+                {
+                    correct[i].addEventListener('click', function()
+                    {
+                        this.style.backgroundColor = '#90EE90';
+                    });
+                }
+
+
+                let incorrects = document.querySelectorAll(".W");
+                for(let i = 0; i< incorrects.length; i++)
+                {
+                    incorrects[i].addEventListener('click', function()
+                    {
+                        this.style.backgroundColor = 'red';
+                    });
+                }
+
+                //use .value for input tags
+                //each has to be done separate - document.getElementById("answer").value == "valmiki" || document.getElementById("answer").value == "Valmiki"
+                //see the regex
+
+                document.getElementById("submit1").addEventListener('click', function()
+                {
+                    if(/valmiki/i.test(document.getElementById("answer1").value))
+                    {
+                        document.getElementById("answer1").style.backgroundColor = '#90EE90';
+                        document.getElementById("result1").innerHTML = "Correct!";
+                    }
+                    else
+                    {
+                        document.getElementById("answer1").style.backgroundColor = 'red';
+                        document.getElementById("result1").innerHTML = "Incorrect";
+                    }
+                });
+
+                document.getElementById("submit2").addEventListener('click', function()
+                {
+                    if(/agni/i.test(document.getElementById("answer2").value))
+                    {
+                        document.getElementById("answer2").style.backgroundColor = '#90EE90';
+                        document.getElementById("result2").innerHTML = "Correct!";
+                    }
+                    else
+                    {
+                        document.getElementById("answer2").style.backgroundColor = 'red';
+                        document.getElementById("result2").innerHTML = "Incorrect";
+                    }
+                });
+
+                document.getElementById("submit3").addEventListener('click', function()
+                {
+                    if(/kailash/i.test(document.getElementById("answer3").value))
+                    {
+                        document.getElementById("answer3").style.backgroundColor = '#90EE90';
+                        document.getElementById("result3").innerHTML = "Correct!";
+                    }
+                    else
+                    {
+                        document.getElementById("answer3").style.backgroundColor = 'red';
+                        document.getElementById("result3").innerHTML = "Incorrect";
+                    }
+                });
+
+            });
+
+        </script>
+    </body>
+</html>
